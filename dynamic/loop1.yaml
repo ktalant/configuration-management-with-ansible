@@ -7,7 +7,7 @@
     - name: install multiple packages
       package:
         name: "{{item}}"
-        state: present
+        state: absent
       with_items:
         - bind-utils
         - elinks
