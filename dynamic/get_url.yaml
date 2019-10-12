@@ -1,0 +1,12 @@
+---
+- name: Playbook for tasks
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: download wordpress
+      get_url:
+        url: "https://wordpress.org/latest.zip"
+        dest: /tmp/
+
+    
