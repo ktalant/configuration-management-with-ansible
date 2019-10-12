@@ -7,12 +7,14 @@
     - name: install multiple packages
       package:
         name: "{{item}}"
-        state: removed
+        state: present
       with_items:
         - bind-utils
         - elinks
         - curl
         - gzip
+
+    
           
           
 
