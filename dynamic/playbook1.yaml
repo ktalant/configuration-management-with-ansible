@@ -12,6 +12,7 @@
       systemd:
         name: httpd
         state: restarted
+        enabled: yes
 
     - name: install firewalld
       yum:
@@ -21,5 +22,12 @@
       yum:
         name: telnet
         state: latest
+    - name: add user bob
+      user:
+        name: bob
+        state: present
+        group: wheel
+        uid: 2001
+        generate_ssh_keys: yes
         
 
