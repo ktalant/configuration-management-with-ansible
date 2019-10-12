@@ -9,6 +9,11 @@
         url: "https://wordpress.org/latest.zip"
         dest: /tmp/
 
+    - name: install Unzip
+      package:
+        name: unzip
+        state: present
+
     - name: unzip wordpress
       unarchive:
         src: /tmp/wordpress-5.2.3.zip
