@@ -9,4 +9,14 @@
         url: "https://wordpress.org/latest.zip"
         dest: /tmp/
 
+    - name: unzip wordpress
+      unarchive:
+        src: /tmp/wordpress-5.2.3.zip
+        dest: /tmp
+      ignore_errors: true
+
+
+      
+
+
     
