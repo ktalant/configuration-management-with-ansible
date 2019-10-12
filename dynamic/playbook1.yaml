@@ -18,16 +18,24 @@
       yum:
         name: firewalld
         state: latest
+
     - name: install telnet
       yum:
         name: telnet
         state: latest
+      
     - name: add user bob
       user:
         name: bob
+        comment: "Bob SMith"
+        create_home: yes
         state: present
         group: wheel
         uid: 2001
+    - name: Install lftp
+      package:
+        name: lftp
+        state: present
         
         
 
