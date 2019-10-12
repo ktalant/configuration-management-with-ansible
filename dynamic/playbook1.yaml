@@ -28,6 +28,6 @@
         state: present
         group: wheel
         uid: 2001
-        generate_ssh_keys: yes
+        
         
 
