@@ -3,5 +3,4 @@ regions:
   - eu-central-1
 filters:
   tag:env: 
-    - webserver
     - database
