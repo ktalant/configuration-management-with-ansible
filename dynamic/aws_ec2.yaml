@@ -4,3 +4,4 @@ regions:
 filters:
   tag:env: 
     - database
+    - webserver
