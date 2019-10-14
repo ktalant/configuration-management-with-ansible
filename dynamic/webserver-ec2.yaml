@@ -1,5 +1,6 @@
 plugin: aws_ec2
 regions:
   - eu-central-1
-hostnames:
-  tag: env=webserver, env=database
+filters:
+  tag: env
+    - webserver
