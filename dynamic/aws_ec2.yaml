@@ -5,3 +5,6 @@ filters:
   tag:env: 
     - database
     - webserver
+hostnames:
+  - tag: env=database, env=webserver
+  
