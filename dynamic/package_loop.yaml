@@ -1,6 +1,6 @@
 ---
 - name: Playbook for tasks
-  hosts: tag: env=webserver
+  hosts: webserver
   become: yes
   become_method: sudo
   tasks:
