@@ -1,0 +1,16 @@
+---
+- name: Playbook creates users, installs packages
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: add multiple users
+      user:
+        name: "{{item}}"
+        groups: wheel
+        append: yes
+      with_items:
+        - altynbek
+        - murat
+        - kashkar
+        
