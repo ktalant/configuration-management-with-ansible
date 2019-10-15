@@ -7,8 +7,8 @@
     - name: change the content of the /tmp/talant-file.txt
       lineinfile:
         path: /tmp/talant-file.txt
-        regexp: '^192.168.0.1'
-        line: '10000 example.com'
+        regexp: '^10000'
+        line: 'new input'
 
     - name: create a new folder talant-folder
       file:
