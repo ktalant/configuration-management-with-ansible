@@ -73,16 +73,7 @@
         src: /tmp/wordpress/*
         dest: /var/www/html/
         recursive: yes
-        
 
-
-
-
-
-  
-
-    
-   
   handlers:
     - name: restart my apache
       service: name=httpd state=restarted
