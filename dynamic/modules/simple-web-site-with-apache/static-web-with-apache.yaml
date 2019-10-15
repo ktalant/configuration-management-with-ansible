@@ -19,7 +19,6 @@
         - php
         - php-mysql
         - php-gd
-        - php-mcrypt
         - MySQL-python
         - git-all
         - python-devel
