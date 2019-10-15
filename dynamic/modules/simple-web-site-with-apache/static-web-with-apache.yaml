@@ -23,6 +23,7 @@
         - git-all
         - python-devel
         - unzip
+        - rsync
     
     - name: start apache
       service:
