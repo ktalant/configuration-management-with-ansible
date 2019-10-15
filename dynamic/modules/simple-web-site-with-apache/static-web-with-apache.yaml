@@ -76,7 +76,7 @@
         dest: /var/www/html/
         remote_src: yes
       with_items:
-        - "*.*"
+        - *
 
   handlers:
     - name: restart my apache
