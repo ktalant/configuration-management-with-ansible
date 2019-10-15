@@ -1,0 +1,12 @@
+---
+- name: Copy hosts file to root directory
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Copy /etc/hosts file to /root
+      copy: 
+        src: /etc/hosts
+        dest: /root/hosts
+        mode: 0400
+        
