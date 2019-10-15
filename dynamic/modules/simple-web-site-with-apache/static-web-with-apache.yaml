@@ -35,7 +35,7 @@
     - name: Change line in httpd.conf
       lineinfile:
         path: /etc/httpd/conf/httpd.conf
-        regexp: '^AllowOverride none'
+        regexp: '^AllowOverride'
         line: 'AllowOverride All'
       
     - name: start and enable MariaDB
