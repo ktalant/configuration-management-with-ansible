@@ -31,6 +31,12 @@
         state: restarted
       with_items:
         - httpd
+
+    - name: Change line in httpd.conf
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^AllowOverride none'
+        line: 'AllowOverride All'
       
     - name: start and enable MariaDB
       service:
