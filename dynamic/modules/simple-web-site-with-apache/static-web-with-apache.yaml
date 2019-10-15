@@ -2,9 +2,9 @@
 - name: create a simple static website with apache
   hosts: all
   vars:
-    db_user: talant
-    db_password: talant@123
-    wordpress_db: talant_db
+    talant_db_user: talant
+    talant_db_password: talant@123
+    talant_wordpress_db: talant_db
   become: yes
   become_method: sudo
   tasks:
@@ -42,8 +42,8 @@
     
     - name: create MySQL user
       mysql_user:
-        user: db_user
-        password: db_password
+        user: talant_db_user
+        password: talant_db_password
         priv: '*.*:ALL,GRANT'
         state: present
     
@@ -75,6 +75,7 @@
         src: /tmp/wordpress/
         dest: /var/www/html/
         remote_src: yes
+
       
     
 
