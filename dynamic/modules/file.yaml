@@ -14,6 +14,11 @@
       file:
         path: /tmp/talant-file.txt
         state: touch
-        mode: u+r,g-rwx,o+r 
+        mode: u+r,g-rwx,o+rw 
         owner: talant
+        
+    - lineinfile:
+        path: /tmp/talant-file.txt
+        line: 192.168.0.1  talantzon.com
+        create: yes
         
