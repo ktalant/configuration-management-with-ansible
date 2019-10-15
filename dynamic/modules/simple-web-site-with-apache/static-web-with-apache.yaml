@@ -62,10 +62,11 @@
         url: https://wordpress.org/latest.zip
         dest: /tmp/wordpress.zip
 
-    - name: unzip wordpress to /var/www/html
+    - name: unzip wordpress 
       unarchive:
         src: /tmp/wordpress.zip
-        dest: /tmp
+        dest: /tmp/
+        copy: no
 
     - name: copy files within /tmp/wordpress to /var/www/html
       synchronize:
