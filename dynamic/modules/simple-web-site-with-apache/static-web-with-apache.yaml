@@ -1,0 +1,9 @@
+---
+- name: create a simple static website with apache
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: make sure apache is installed and latest version
+      yum: name=httpd  state=latest
+      
