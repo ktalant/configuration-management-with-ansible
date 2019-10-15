@@ -23,8 +23,14 @@
         - git-all
         - python-devel
         - unzip
-        - rsync
-    
+         - rsync
+ 
+    - name: Change line in httpd.conf
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^AllowOverride'
+        line: 'AllowOverride All'
+             
     - name: start apache
       service:
         name: "{{item}}"
@@ -32,11 +38,7 @@
       with_items:
         - httpd
 
-    - name: Change line in httpd.conf
-      lineinfile:
-        path: /etc/httpd/conf/httpd.conf
-        regexp: '^AllowOverride'
-        line: 'AllowOverride All'
+ 
       
     - name: start and enable MariaDB
       service:
