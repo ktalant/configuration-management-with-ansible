@@ -25,12 +25,6 @@
         - unzip
         - rsync
  
-    - name: Change line in httpd.conf
-      lineinfile:
-        path: /etc/httpd/conf/httpd.conf
-        regexp: '^AllowOverride'
-        line: 'AllowOverride All'
-
     - name: start apache
       service:
         name: "{{item}}"
