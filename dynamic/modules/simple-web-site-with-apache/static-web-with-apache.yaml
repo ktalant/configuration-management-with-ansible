@@ -61,7 +61,7 @@
    
     - name: download latest wordpress
       get_url:
-        url: https://wordpress.org/latest.zip
+        url: https://wordpress.org/wordpress-5.1.1.zip
         dest: /tmp/wordpress.zip
 
     - name: unzip wordpress 
