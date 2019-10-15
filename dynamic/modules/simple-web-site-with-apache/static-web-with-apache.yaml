@@ -74,7 +74,7 @@
       synchronize:
         src: /tmp/wordpress/
         dest: /var/www/html/
-        remote_src: yes
+        
 
   handlers:
     - name: restart my apache
