@@ -71,10 +71,12 @@
         copy: no
 
     - name: copy files within /tmp/wordpress to /var/www/html
-      synchronize:
-        src: /tmp/wordpress/
+      copy:
+        src: /tmp/wordpress/"{{item}}"
         dest: /var/www/html/
-        
+        remote_src: yes
+      with_items:
+        - "*.*"
 
   handlers:
     - name: restart my apache
