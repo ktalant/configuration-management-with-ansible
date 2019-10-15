@@ -7,7 +7,7 @@
     - name: make sure apache is installed and latest version
       yum: 
         name: "{{item}}"
-        state: installed
+        state: latest
       with_items:
         - httpd
         - mariadb
@@ -23,7 +23,7 @@
         - httpd
         - mariadb
 
-        
+
 
     - name: download latest wordpress
       get_url:
