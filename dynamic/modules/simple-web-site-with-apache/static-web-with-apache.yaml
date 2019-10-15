@@ -76,7 +76,13 @@
         dest: /var/www/html/
         remote_src: yes
 
+    - name: copy wp-config.j2 file as wp-config.php
+      template: 
+        src: ./wp-config.j2
+        dest: /var/www/html/wp-config.php
       
+      notify: 
+        - restart my apache
     
 
   handlers:
