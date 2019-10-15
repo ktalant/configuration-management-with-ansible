@@ -74,7 +74,6 @@
       copy:
         src: /tmp/wordpress/
         dest: /var/www/html/
-        recursive: yes
         remote_src: yes
       
     
