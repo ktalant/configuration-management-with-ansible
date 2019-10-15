@@ -22,6 +22,7 @@
         - MySQL-python
         - git-all
         - python-devel
+        - unzip
     
     - name: start apache
       service:
