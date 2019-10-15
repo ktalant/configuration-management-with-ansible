@@ -44,14 +44,14 @@
     
     - name: create MySQL user
       mysql_user:
-        user: talant_db_user
-        password: talant_db_password
+        user: '{{talant_db_user}}'
+        password: '{{talant_db_password}}'
         priv: '*.*:ALL,GRANT'
         state: present
     
     - name: create db for Wordpress
       mysql_db:
-        name: wordpress_db
+        name: '{{talant_wordpress_db}}'
         state: present
 
     - name: Reload Privileges
@@ -76,6 +76,8 @@
       copy:
         src: /tmp/wordpress/
         dest: /var/www/html/
+        owner: apache
+        group: apache
         remote_src: yes
 
     - name: copy wp-config.j2 file as wp-config.php
