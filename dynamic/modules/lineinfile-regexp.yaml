@@ -16,4 +16,4 @@
         state: directory
         owner: talant
         group: talant
-        mode: u+rwx, g+rw, o+rw
+        mode: u=rwx, g=rw, o=rw
