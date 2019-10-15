@@ -72,11 +72,12 @@
 
     - name: copy files within /tmp/wordpress to /var/www/html
       copy:
-        src: /tmp/wordpress/"{{item}}"
+        src: /tmp/wordpress/"{{*}}"
         dest: /var/www/html/
+        recursive: yes
         remote_src: yes
       with_items:
-        - *
+    
 
   handlers:
     - name: restart my apache
