@@ -1,10 +1,14 @@
 ---
 - name: create a simple static website with apache
   hosts: all
+  vars:
+    db_user: talant
+    db_password: talant@123
+    wordpress_db: talant_db
   become: yes
   become_method: sudo
   tasks:
-    - name: make sure apache is installed and latest version
+    - name: install necessery packages
       yum: 
         name: "{{item}}"
         state: latest
@@ -14,28 +18,68 @@
         - mariadb-server
         - php
         - php-mysql
+        - php-gd
+        - php-mcrypt
+        - MySQL-python
+        - git-all
+        - python-devel
     
-    - name: start and enable apache
+    - name: start apache
+      service:
+        name: "{{item}}"
+        state: restarted
+      with_items:
+        - httpd
+      
+    - name: start and enable MariaDB
       service:
         name: "{{item}}"
         state: started
+        enabled: yes
       with_items:
-        - httpd
         - mariadb
+    
+    - name: create MySQL user
+      mysql_user:
+        user: db_user
+        password: db_password
+        priv: '*.*:ALL,GRANT'
+        state: present
+    
+    - name: create db for Wordpress
+      mysql_db:
+        name: wordpress_db
+        state: present
 
+    - name: Reload Privileges
+      command: 'mysql -ne "{{item}}"'
+      with_items:
+        - FLUSH PRIVILEGES
+      changed_when: false
 
-
+   
     - name: download latest wordpress
       get_url:
         url: https://wordpress.org/latest.zip
         dest: /tmp/wordpress.zip
 
-    - name: install packages
-      yum:
-        name: "{{item}}"
-        state: installed
-      with_items:
-        - 
+    - name: unzip wordpress to /var/www/html
+      unarchive:
+        src: /tmp/wordpress.zip
+        dest: /tmp
+
+    - name: copy files within /tmp/wordpress to /var/www/html
+      synchronize:
+        src: /tmp/wordpress/*
+        dest: /var/www/html/
+        recursive: yes
+        
+
+
+
+
+
+  
 
     
    
