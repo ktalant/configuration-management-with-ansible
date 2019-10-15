@@ -9,4 +9,7 @@
         src: /etc/hosts
         dest: /root/hosts
         mode: 0400
+
+    - name: Copy /etc/motd to /tmp
+      copy: src=/etc/motd dest=/tmp/my_motd mode=0751      
         
