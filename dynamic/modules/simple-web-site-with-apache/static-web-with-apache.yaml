@@ -70,10 +70,7 @@
         copy: no
 
     - name: copy files within /tmp/wordpress to /var/www/html
-      synchronize:
-        src: /tmp/wordpress/
-        dest: /var/www/html/
-        recursive: yes
+      command: 'mv /tmp/wordpress/*  /var/www/html/'
 
   handlers:
     - name: restart my apache
