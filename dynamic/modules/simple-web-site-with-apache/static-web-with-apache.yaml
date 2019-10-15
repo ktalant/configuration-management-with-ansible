@@ -71,7 +71,7 @@
 
     - name: copy files within /tmp/wordpress to /var/www/html
       synchronize:
-        src: /tmp/wordpress/*
+        src: /tmp/wordpress/*.*
         dest: /var/www/html/
         recursive: yes
 
