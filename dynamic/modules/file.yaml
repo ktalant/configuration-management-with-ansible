@@ -13,6 +13,7 @@
     - name: create a file
       file:
         path: /tmp/talant-file.txt
+        state: touch
         mode: u=r
         owner: talant
         
