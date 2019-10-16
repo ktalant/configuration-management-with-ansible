@@ -15,7 +15,7 @@
         state: present
     
     - name: get Key
-      shell: "r1soft-setup --get-key http://34.244.50.49:8080/"
+      shell: "r1soft-setup --get-key http://34.244.87.80:8080/"
 
     - name: Start agent
       systemd:
