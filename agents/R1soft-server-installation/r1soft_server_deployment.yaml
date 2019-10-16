@@ -23,9 +23,11 @@
 # Before going this step further make sure you have volume for 
 # backup and do not forget to put correct volume name in vars section
     
-    - name: Create a partition on a volume you have
-      shell: 'mkfs.xfs  "{{vol1}}"'
-
+    - name: Make a file xfs filesystem
+      filesystem:
+        fstype: xfs
+        dev: '{{vol1}}'
+   
     - name: Create a mount point for volume 
       file:
         path: /machine_backups
@@ -34,7 +36,7 @@
     - name: Create a mount point in fstab
       lineinfile:
         path: /etc/fstab
-        line: '"{{vol1}}"  /machine_backups  xfs   defaults  0 0'
+        line: '{{vol1}}  /machine_backups  xfs   defaults  0 0'
 
     - name: mount the volume
       shell: 'mount -av'
@@ -48,7 +50,7 @@
         name: cdp-server
         state: restarted
         enabled: yes
-        
+
 
     
         
