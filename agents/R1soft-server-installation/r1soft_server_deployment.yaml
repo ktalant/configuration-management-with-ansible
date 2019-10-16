@@ -1,0 +1,18 @@
+---
+- name: R1Soft Server Installation
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Copy r1soft.repo file to /etc/yum.repos.d/
+      copy:
+        src: ./r1soft.repo
+        dest: /etc/yum.repos.d/r1soft.repo
+    
+    - name: Install R1Soft Server
+      package:
+        name: serverbackup-enterprise
+        state: present
+    
+        
+  
