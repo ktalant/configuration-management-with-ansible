@@ -1,0 +1,27 @@
+---
+- name: stop services
+  hosts: "{{host}}"
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Stop "{{service1}}"
+      systemd:
+        name: "{{service1}}"
+        state: stopped
+      ignore_errors: yes
+    - name: Stop "{{service2}}"
+      systemd:
+        name: "{{service2}}"
+        state: stopped
+      ignore_errors: yes
+    - name: Stop "{{service3}}"
+      systemd:
+        name: "{{service3}}"
+        state: stopped
+      ignore_errors: yes
+    - name: Stop "{{service4}}"
+      systemd:
+        name: "{{service4}}"
+        state: stopped
+      ignore_errors: yes  
+
