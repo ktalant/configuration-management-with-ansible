@@ -17,14 +17,13 @@
         name: kernel
         state: latest
 
-    - name: Reboot
-      shell: "shutdown -r now"
+    - name: Reboot the server for kernel update
+      shell: ( sleep 3 && /sbin/reboot & )
+      async: 0
+      poll: 0
 
-    - name: Wait for instance
-      wait_for_connection:
-        delay: 60
-        timeout: 300
-
+    - name: Wait for the server to reboot
+      local_action: wait_for host="{{ansible_host}}" delay=15 state=started port=22                 connect_timeout=10 timeout=180
     - name: register
       shell: uname -r
       register: message
