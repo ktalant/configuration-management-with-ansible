@@ -5,9 +5,9 @@
   become_method: sudo
   tasks:
 
-  - name: register
-    shell: uname -r
-    register: message
+    - name: register
+      shell: uname -r
+      register: message
 
 
     - name: Debug
