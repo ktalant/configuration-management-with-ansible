@@ -5,53 +5,53 @@
   become_method: sudo
   tasks:
     - name: Stop "{{service1}}"
-      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       systemd:
         name: "{{service1}}"
         state: stopped
+      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       ignore_errors: yes
     - name: Stop "{{service2}}"
-      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       systemd:
         name: "{{service2}}"
         state: stopped
+      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       ignore_errors: yes
     - name: Stop "{{service3}}"
-      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       systemd:
         name: "{{service3}}"
         state: stopped
+      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       ignore_errors: yes
     - name: Stop "{{service4}}"
-      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       systemd:
         name: "{{service4}}"
         state: stopped
+      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       ignore_errors: yes  
 
 
     - name: Stop "{{service1}}"
-      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       service:
         name: "{{service1}}"
         state: stopped
+      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       ignore_errors: yes
     - name: Stop "{{service2}}"
-      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       service:
         name: "{{service2}}"
         state: stopped
+      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       ignore_errors: yes
     - name: Stop "{{service3}}"
-      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       service:
         name: "{{service3}}"
         state: stopped
+      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       ignore_errors: yes
     - name: Stop "{{service4}}"
-      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       service:
         name: "{{service4}}"
         state: stopped
+      when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       ignore_errors: yes 
 
