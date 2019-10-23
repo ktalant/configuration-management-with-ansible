@@ -1,21 +1,16 @@
 ---
-- name: Upgrade kernel
+- name: Playbook for Upgrading kernel
   hosts: "{{host}}"
   become: yes
   become_method: sudo
   tasks:
-    - name: register
+    - name: Output
       shell: uname -r
-      register: message
-
+      register:  kernel
+      
     - name: Debug
       debug:
-        msg: "{{message}}"
-
-    - name: upgrade kernel
-      package:
-        name: kernel
-        state: latest
+        var: kernel.stdout
 
     - name: Reboot the server for kernel update
       shell: ( sleep 3 && /sbin/reboot & )
@@ -24,13 +19,11 @@
 
     - name: Wait for the server to reboot
       local_action: wait_for host="{{ansible_host}}" delay=15 state=started port=22                 connect_timeout=10 timeout=180
-    - name: register
+    
+    - name: Output
       shell: uname -r
-      register: message
-
+      register:  kernel
 
     - name: Debug
       debug:
-        msg: "{{message}}"  
-
-
+        var: kernel.stdout
