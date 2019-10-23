@@ -19,3 +19,22 @@
       package:
         name: kernel
         state: latest
+
+    - name: Reboot
+      shell: "shutdown -r now"
+
+    - name: Wait for instance
+      wait_for_connection:
+        delay: 60
+        timeout: 300
+
+    - name: register
+      shell: uname -r
+      register: message
+
+
+    - name: Debug
+      debug:
+        msg: "{{message}}"  
+
+
