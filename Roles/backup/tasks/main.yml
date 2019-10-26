@@ -12,7 +12,7 @@
   notify: restart-nrpe
 
 - name: get Key
-  shell: "r1soft-setup --get-key http://34.249.24.81:8080/"
+  shell: 'r1soft-setup --get-key http://"${{r1soft_server_ip}}":"${{r1soft_server_port}}"'
   ignore_errors: true
 
 - name: Stop Firewall
