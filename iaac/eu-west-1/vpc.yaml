@@ -1,5 +1,5 @@
 ---
-- name: VPC Creation  
+- name: VPC Creation in eu-west-1 
   hosts: localhost
   tasks:
   - name: create a new VPC 
