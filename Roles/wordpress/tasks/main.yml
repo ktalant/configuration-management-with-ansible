@@ -19,12 +19,12 @@
 
 - name: Download wordpress package
   get_url:
-    url: "https://wordpress.org/wordpress-${{wordpress_version}}"
+    url: "https://wordpress.org/wordpress-{{wordpress_version}}"
     dest: /tmp/
 
 - name: Unzip wordpress file
   unarchive:
-    src: "/tmp/wordpress-${{wordpress_version}}"
+    src: "/tmp/wordpress-{{wordpress_version}}"
     dest: /var/www/html/
     remote_src: yes
   become: yes
