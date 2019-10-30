@@ -4,7 +4,7 @@
   tasks:
   - name: create a new VPC 
     ec2_vpc_net:
-      name: Module_dev2
+      name: new-VPC-1
       cidr_block: 192.168.0.0/16
       region: eu-west-1
       tags:
