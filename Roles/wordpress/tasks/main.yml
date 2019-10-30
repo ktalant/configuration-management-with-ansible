@@ -19,8 +19,8 @@
 
 - name: Download wordpress package
   get_url:
-    url: "https://wordpress.org/wordpress-{{wordpress_version}}"
-    dest: /tmp/
+    url: "https://wordpress.org/wordpress-{{wordpress_version}}.tar.gz"
+    dest: /tmp/wordpress.tar.gz
 
 - name: Unzip wordpress file
   unarchive:
