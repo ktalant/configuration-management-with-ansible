@@ -7,6 +7,8 @@
       description: My SG1
       vpc_id: vpc-46395b20
       region: eu-west-1
+      resource_tags:
+        Name: my-SG-1
       rules:
         - proto: tcp
           ports:
