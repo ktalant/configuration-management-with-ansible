@@ -1,0 +1,11 @@
+---
+- name: VPC Creation  
+  hosts: localhost
+  tasks:
+  - name: create a new VPC 
+    ec2_vpc_net:
+      name: Module_dev2
+      cidr_block: 192.168.0.0/16
+      region: eu-west-1
+      tags:
+        Name: new-VPC-1 
