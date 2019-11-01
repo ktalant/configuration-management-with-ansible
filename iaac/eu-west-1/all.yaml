@@ -1,0 +1,11 @@
+- name: Security Group  
+  hosts: localhost
+  tasks:
+    - name: Check host
+      ping:
+
+    - name: Run Private Playbook
+      include: vpc.yaml
+    
+    - name: Run Private Playbook
+      include: ./vpc-46395b20/security_group.yaml 

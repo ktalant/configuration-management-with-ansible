@@ -1,0 +1,13 @@
+---
+- name: Playbook for adding hosts and services to Nagios Monitoring
+  hosts: monitoring
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Adding hosts
+      shell: 'curl -XPOST "http://nagiosxi.acirrustech.com/nagiosxi/api/v1/config/host?apikey={{api_key}}&pretty=1" -d "host_name={{host_name}}&address={{host_address}}&check_command=check_ping\!3000,80%\!5000,100%&max_check_attempts=2&check_period=24x7&contacts=nagiosadmin&notification_interval=5&notification_period=24x7&applyconfig=1"'
+    
+
+    - name: Adding services
+      shell: 'curl -XPOST "http://nagiosxi.acirrustech.com/nagiosxi/api/v1/config/service?apikey={{api_key}}&pretty=1" -d "host_name={{host_name}}&service_description=PING&check_command=check_ping\!3000,80%\!5000,100%&check_interval=5&retry_interval=5&max_check_attempts=2&check_period=24x7&contacts=nagiosadmin&notification_interval=5&notification_period=24x7&applyconfig=1"'
+
