@@ -1,0 +1,10 @@
+---
+- hosts: {{ server }}
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: install jdk
+      yum:
+        name: java-1.8.0-openjdk-devel
+        state: latest
+        
