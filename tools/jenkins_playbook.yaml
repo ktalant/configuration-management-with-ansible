@@ -6,3 +6,9 @@
       yum:
         name: java-1.8.0-openjdk-devel
         state: latest
+
+    - name: Add Jenkins repo
+      yum_repository:
+        name: jenkins.repo
+        description: EPEL YUM repo
+        baseurl: http://pkg.jenkins-ci.org/redhat-stable/
