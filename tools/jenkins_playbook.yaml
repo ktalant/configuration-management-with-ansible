@@ -10,5 +10,5 @@
     - name: Add Jenkins repo
       yum_repository:
         name: jenkins.repo
-        description: EPEL YUM repo
+        description: Jenkins REPO
         baseurl: http://pkg.jenkins-ci.org/redhat-stable/
