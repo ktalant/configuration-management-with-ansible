@@ -1,7 +1,6 @@
 ---
 - hosts: la1
   become: yes
-  become_method: sudo
   tasks:
     - name: install jdk
       yum:
