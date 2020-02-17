@@ -1,5 +1,5 @@
 ---
-- hosts: {{ server }}
+- hosts: la1
   become: yes
   become_method: sudo
   tasks:
@@ -7,4 +7,3 @@
       yum:
         name: java-1.8.0-openjdk-devel
         state: latest
-        
