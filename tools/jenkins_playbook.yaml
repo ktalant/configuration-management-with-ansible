@@ -9,6 +9,6 @@
 
     - name: Add Jenkins repo
       yum_repository:
-        name: jenkins.repo
+        name: jenkins
         description: Jenkins REPO
         baseurl: http://pkg.jenkins-ci.org/redhat-stable/
