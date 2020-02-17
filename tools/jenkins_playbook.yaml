@@ -12,3 +12,15 @@
         name: jenkins
         description: Jenkins REPO
         baseurl: http://pkg.jenkins-ci.org/redhat-stable/
+
+    - name: Add rmp key
+      rpm_key:
+        state: present
+        key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+    - name: Start and enable Jenkins
+      systemd:
+        name: jenkins
+        state: started
+        enabled: yes
+         
