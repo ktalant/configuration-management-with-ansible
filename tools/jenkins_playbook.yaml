@@ -18,9 +18,13 @@
         state: present
         key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
 
+    - name: Install Jenkins
+      yum:
+        name: jenkins
+        state: latest
+
     - name: Start and enable Jenkins
       systemd:
         name: jenkins
         state: started
         enabled: yes
-         
